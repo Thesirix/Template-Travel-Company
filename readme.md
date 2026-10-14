@@ -20,8 +20,6 @@
 
 [Why it](#why-template-travel-company) · [Quick start](#quick-start) · [Product tour](#product-tour) · [Features](#feature-reference) · [Tech stack](#tech-stack) · [Architecture](#architecture) · [Scaling](#built-to-scale) · [Testing](#quality--testing) · [FAQ](#faq)
 
-<code>docker compose up</code>
-
 <br /><br />
 
 <img src="docs/assets/login.gif" alt="Sign-in screen with the animated flight route" width="1100" />
@@ -45,15 +43,15 @@ source code: deploy it as it is, rebrand it in minutes, or extend it into your o
 
 ## Why Template Travel Company
 
-| | |
-|---|---|
-| **One tool for the whole sales chain** | From the seat held with the airline to the issued ticket and the paid balance, every step lives on the same booking, with a full history of who did what. |
-| **Multi-agency from day one** | Head office, branches and partner agencies share one platform. Partners only sell what they are allowed to, never see purchase prices, and only access their own bookings. |
-| **No hard-coded destinations** | A destination is a row in the database. Adding a country creates its menus, its screens and its access right, no developer needed. |
-| **White label** | Agency name, logos (light background, dark background, icon) and brand colours are set from the admin panel and applied everywhere instantly. |
-| **Fine-grained access rights** | Each agent gets rights per destination and per module: ferries, quotes, payments, exports, allotments, procedures, team planning. |
-| **Built for daily operations** | Ticketing deadline alerts, automatic option expiry, monthly leave accrual, Excel exports, PDF contracts and e-tickets, SMS quotes. |
-| **Production-grade code** | Service classes, database transactions and row locks on seat inventory, 100+ server tests and an end-to-end browser suite that visits every page and submits every form. |
+|                                        |                                                                                                                                                                            |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **One tool for the whole sales chain** | From the seat held with the airline to the issued ticket and the paid balance, every step lives on the same booking, with a full history of who did what.                  |
+| **Multi-agency from day one**          | Head office, branches and partner agencies share one platform. Partners only sell what they are allowed to, never see purchase prices, and only access their own bookings. |
+| **No hard-coded destinations**         | A destination is a row in the database. Adding a country creates its menus, its screens and its access right, no developer needed.                                         |
+| **White label**                        | Agency name, logos (light background, dark background, icon) and brand colours are set from the admin panel and applied everywhere instantly.                              |
+| **Fine-grained access rights**         | Each agent gets rights per destination and per module: ferries, quotes, payments, exports, allotments, procedures, team planning.                                          |
+| **Built for daily operations**         | Ticketing deadline alerts, automatic option expiry, monthly leave accrual, Excel exports, PDF contracts and e-tickets, SMS quotes.                                         |
+| **Production-grade code**              | Service classes, database transactions and row locks on seat inventory, 100+ server tests and an end-to-end browser suite that visits every page and submits every form.   |
 
 ## Quick start
 
@@ -76,13 +74,13 @@ MySQL 8.4, creates the database, loads the demo data and prints:
 Template Travel Company est prêt : http://localhost:8000
 ```
 
-| Command | Effect |
-|---|---|
-| `docker compose up` | Start the application and MySQL (demo data is created on the first start only) |
-| `DEMO_RESET=true docker compose up` | Start with a fresh copy of the demo data |
-| `APP_PORT=9000 docker compose up` | Serve the application on another port |
-| `docker compose down` | Stop everything (data is kept) |
-| `docker compose down -v` | Stop everything and delete the database |
+| Command                             | Effect                                                                         |
+| ----------------------------------- | ------------------------------------------------------------------------------ |
+| `docker compose up`                 | Start the application and MySQL (demo data is created on the first start only) |
+| `DEMO_RESET=true docker compose up` | Start with a fresh copy of the demo data                                       |
+| `APP_PORT=9000 docker compose up`   | Serve the application on another port                                          |
+| `docker compose down`               | Stop everything (data is kept)                                                 |
+| `docker compose down -v`            | Stop everything and delete the database                                        |
 
 ### Option 2: PHP on your machine
 
@@ -105,12 +103,12 @@ Reset the demo at any time with `php artisan migrate:fresh --seed`.
 There is a **single sign-in page** for everyone: the account decides whether you land in the administration or in
 the agent workspace. Password for every demo account: **`Demo1234!`**
 
-| Account | Lands in | What it shows |
-|---|---|---|
-| `admin@travel-company.test` | Administration | Full control: catalogue, flights, agencies, agents, brand |
-| `super.agent@travel-company.test` | Agent workspace | Every module, including team planning across all agencies |
-| `agent@travel-company.test` | Agent workspace | A head-office sales agent |
-| `partenaire@travel-company.test` | Agent workspace | A partner agency: two destinations, quotes only, own bookings only |
+| Account                           | Lands in        | What it shows                                                      |
+| --------------------------------- | --------------- | ------------------------------------------------------------------ |
+| `admin@travel-company.test`       | Administration  | Full control: catalogue, flights, agencies, agents, brand          |
+| `super.agent@travel-company.test` | Agent workspace | Every module, including team planning across all agencies          |
+| `agent@travel-company.test`       | Agent workspace | A head-office sales agent                                          |
+| `partenaire@travel-company.test`  | Agent workspace | A partner agency: two destinations, quotes only, own bookings only |
 
 The other demo agents sign in with `firstname.lastname@travel-company.test`, for example `lea.garcia@travel-company.test`
 (head office), `karim.fournier@travel-company.test` (Marseille branch) or `nicolas.fontaine@travel-company.test` (Lille partner).
@@ -120,17 +118,17 @@ The other demo agents sign in with `firstname.lastname@travel-company.test`, for
 
 <br />
 
-| | |
-|---|---|
-| Agencies | 5, Paris head office, Marseille and Bordeaux branches, Lyon and Lille partners |
-| Team | 1 administrator, 14 agents (one super agent, one deactivated former agent) |
-| Destinations | Italy, Greece, Portugal, Canada, each with its flight groups and seasons |
-| Flights | Round trips and separate outbound / return legs from Paris, Lyon and Marseille |
-| Bookings | About 50, spread over six months, with passengers, deposits, payments, one cancellation and one waiting-list entry |
-| Allotments | Options in every status (on sale, named, to issue, issued, released, expired) and group requests |
-| Ferries | Crossing requests to handle, confirmed, sold and exchange vouchers, with vehicles |
-| Clients | Website and agency clients, quote requests and quotes |
-| Team life | Leave requests in every status, sick leave, two months of attendance, agenda, notes and to-do items |
+|              |                                                                                                                    |
+| ------------ | ------------------------------------------------------------------------------------------------------------------ |
+| Agencies     | 5, Paris head office, Marseille and Bordeaux branches, Lyon and Lille partners                                     |
+| Team         | 1 administrator, 14 agents (one super agent, one deactivated former agent)                                         |
+| Destinations | Italy, Greece, Portugal, Canada, each with its flight groups and seasons                                           |
+| Flights      | Round trips and separate outbound / return legs from Paris, Lyon and Marseille                                     |
+| Bookings     | About 50, spread over six months, with passengers, deposits, payments, one cancellation and one waiting-list entry |
+| Allotments   | Options in every status (on sale, named, to issue, issued, released, expired) and group requests                   |
+| Ferries      | Crossing requests to handle, confirmed, sold and exchange vouchers, with vehicles                                  |
+| Clients      | Website and agency clients, quote requests and quotes                                                              |
+| Team life    | Leave requests in every status, sick leave, two months of attendance, agenda, notes and to-do items                |
 
 The data is generated with a fixed seed: every installation looks exactly the same.
 
@@ -167,7 +165,7 @@ The first screen an agent sees every morning:
 
 <img src="docs/screenshots/agent-sale.png" alt="Flight sales page" />
 
-Each destination opens on its flight groups (for example *Italy - Autumn*). The sales page shows:
+Each destination opens on its flight groups (for example _Italy - Autumn_). The sales page shows:
 
 - **Best sellers**: every agent ranked by passengers sold, with the split adults / children / infants.
 - **Sales per agency**: the same ranking per agency, head office and partners included.
@@ -212,7 +210,7 @@ Allotments are blocks of seats held with an airline before they are sold. The mo
 - **Create** an option: route, dates, airline, number of seats, class, price, deadline, PNR.
 - **Place** named passengers (adult, child, infant) with their sale price and deposit.
 - **Confirm**, **issue**, **release**, or **release and rebook** with the same details.
-- **Statuses update themselves every morning**: options become *expiring soon* near their deadline and *expired*
+- **Statuses update themselves every morning**: options become _expiring soon_ near their deadline and _expired_
   after it. Tabs show each status with its counter; deadlines turn red when they come close.
 - **Group requests** let agents ask for a new block with a target price and class.
 
@@ -311,7 +309,7 @@ next departures; team size (agents, agencies, clients); pending leave requests.
 - **Flights**: search by airline, route, type, dates and city; create, copy and edit flights with their legs and
   stopovers, schedules, seats, prices per passenger type, closing deadline, baggage, conditions and itinerary
   colour; archive past flights.
-- **Flight groups**: seasons per destination (*Italy - Autumn*, *Canada - Spring*), round trip or multi-segment.
+- **Flight groups**: seasons per destination (_Italy - Autumn_, _Canada - Spring_), round trip or multi-segment.
 - **Seats**: adjust the inventory of a flight in one place.
 
 #### Catalogue
@@ -390,64 +388,64 @@ Changes apply to both workspaces, the sign-in page and the e-mails.
 
 ### Agent workspace
 
-| Module | Capabilities |
-|---|---|
-| Dashboard | Monthly KPIs, six-month sales chart, next departures, agenda, leave balances, to-do list, notes |
-| Flight sales | Flight groups per destination, leaderboards, open flights, instant quote, passenger registration, insurance, documents |
-| Bookings | Search, edit, add passengers, cancel passenger or booking with fees, change flight, deposits, contract, e-ticket |
-| File management | Passenger files, passport verification, missing documents (head office) |
-| Ticketing | D-60 / D-45 / D-35 milestones, passenger verification, ticket references, airline manifest exports (head office) |
-| Ferries | Crossing requests with vehicles and passengers, four status queues, filters, export |
-| Allotments | Options, named passengers, confirm, issue, release, release and rebook, automatic expiry, group requests, guide |
-| Client requests | Lead capture, client search and creation, priced quote, SMS sending |
-| Quotes | List of quotes sent |
-| Card payments | Debit authorisation, secure payment page, signed bank return |
-| Exports | Contacts per destination, Excel export |
-| Procedures | Internal documents, images and videos |
-| Team planning | All agencies, leave and attendance, live balances, approval workflow (super agents) |
-| Profile | Name and photo |
+| Module          | Capabilities                                                                                                           |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Dashboard       | Monthly KPIs, six-month sales chart, next departures, agenda, leave balances, to-do list, notes                        |
+| Flight sales    | Flight groups per destination, leaderboards, open flights, instant quote, passenger registration, insurance, documents |
+| Bookings        | Search, edit, add passengers, cancel passenger or booking with fees, change flight, deposits, contract, e-ticket       |
+| File management | Passenger files, passport verification, missing documents (head office)                                                |
+| Ticketing       | D-60 / D-45 / D-35 milestones, passenger verification, ticket references, airline manifest exports (head office)       |
+| Ferries         | Crossing requests with vehicles and passengers, four status queues, filters, export                                    |
+| Allotments      | Options, named passengers, confirm, issue, release, release and rebook, automatic expiry, group requests, guide        |
+| Client requests | Lead capture, client search and creation, priced quote, SMS sending                                                    |
+| Quotes          | List of quotes sent                                                                                                    |
+| Card payments   | Debit authorisation, secure payment page, signed bank return                                                           |
+| Exports         | Contacts per destination, Excel export                                                                                 |
+| Procedures      | Internal documents, images and videos                                                                                  |
+| Team planning   | All agencies, leave and attendance, live balances, approval workflow (super agents)                                    |
+| Profile         | Name and photo                                                                                                         |
 
 ### Administration
 
-| Module | Capabilities |
-|---|---|
-| Dashboard | Inventory, bookings, revenue, fill rate per destination, next departures, team, pending leave |
-| Destinations | Create, order, colour, hide; generated menus and rights |
-| Flights | Create, copy, edit, archive, legs and stopovers, prices, seats, deadlines, conditions |
-| Flight groups & seats | Seasons per destination, seat inventory |
-| Catalogue | Airlines, airports, cities, countries, conditions, insurance, ferry catalogue, allotment lists and guide |
-| Procedures | Upload documents, images and videos for the agents |
-| Agencies | Head office, branches, partners |
-| Agents | Rights per destination and module, super agent, password reset, deactivation |
-| Clients | Search, client file, quote history |
-| Activity history | Every action on bookings, filterable |
-| Payments | Online payments received |
-| To-do list | Tasks assigned to agents |
-| Brand identity | Name, logos, palette, live preview |
+| Module                | Capabilities                                                                                             |
+| --------------------- | -------------------------------------------------------------------------------------------------------- |
+| Dashboard             | Inventory, bookings, revenue, fill rate per destination, next departures, team, pending leave            |
+| Destinations          | Create, order, colour, hide; generated menus and rights                                                  |
+| Flights               | Create, copy, edit, archive, legs and stopovers, prices, seats, deadlines, conditions                    |
+| Flight groups & seats | Seasons per destination, seat inventory                                                                  |
+| Catalogue             | Airlines, airports, cities, countries, conditions, insurance, ferry catalogue, allotment lists and guide |
+| Procedures            | Upload documents, images and videos for the agents                                                       |
+| Agencies              | Head office, branches, partners                                                                          |
+| Agents                | Rights per destination and module, super agent, password reset, deactivation                             |
+| Clients               | Search, client file, quote history                                                                       |
+| Activity history      | Every action on bookings, filterable                                                                     |
+| Payments              | Online payments received                                                                                 |
+| To-do list            | Tasks assigned to agents                                                                                 |
+| Brand identity        | Name, logos, palette, live preview                                                                       |
 
 ### Platform
 
-| Capability | Details |
-|---|---|
-| Single sign-in | One page for every account; the account decides the workspace and the page requested before signing in is restored |
+| Capability          | Details                                                                                                                      |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Single sign-in      | One page for every account; the account decides the workspace and the page requested before signing in is restored           |
 | Public API (`/api`) | Customer accounts with JWT and one-time passwords, password reset, flight search, quotes, bookings, payments, airport search |
-| Scheduled jobs | Ticketing alerts every morning, allotment statuses every morning, monthly leave accrual, weekly rest days |
-| Documents | PDF contracts and e-tickets, Excel exports, transactional e-mails |
-| Integrations | Paybox card payments, iSendPro SMS, both optional and configured in `.env` |
+| Scheduled jobs      | Ticketing alerts every morning, allotment statuses every morning, monthly leave accrual, weekly rest days                    |
+| Documents           | PDF contracts and e-tickets, Excel exports, transactional e-mails                                                            |
+| Integrations        | Paybox card payments, iSendPro SMS, both optional and configured in `.env`                                                   |
 
 ## Tech stack
 
-| Layer | Technology | Why |
-|---|---|---|
-| Language | **PHP 8.4** | Typed properties, enums, readonly classes and first-class performance; hosted everywhere. |
-| Framework | **Laravel 13** | Routing, Eloquent ORM, migrations, queues, scheduler, mail and testing tools from one coherent framework. |
-| Database | **MySQL 8.4** | Transactions and row locks for seat inventory; the most widely hosted relational database. |
-| Authentication | Session guards (agents, administrators), **JWT + OTP** (public API) | Two internal workspaces and one public API, each with the right mechanism. |
-| Permissions | **spatie/laravel-permission** | Rights per destination and per module, stored as data. |
-| Documents | **DomPDF**, **Laravel Excel** | Contracts, e-tickets and airline manifests generated on the server. |
-| Interface | Blade, a hand-written CSS theme, Bootstrap 4 grid, FullCalendar, Chart.js, select2, flatpickr | Fast server-rendered pages, no build step required to run the application. |
-| Containers | **Docker** (PHP 8.4 CLI image + MySQL 8.4) | One command to run the full demo anywhere. |
-| Tests | **PHPUnit 11**, **Playwright** | Business flows on the server, every page and form in a real browser. |
+| Layer          | Technology                                                                                    | Why                                                                                                       |
+| -------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Language       | **PHP 8.4**                                                                                   | Typed properties, enums, readonly classes and first-class performance; hosted everywhere.                 |
+| Framework      | **Laravel 13**                                                                                | Routing, Eloquent ORM, migrations, queues, scheduler, mail and testing tools from one coherent framework. |
+| Database       | **MySQL 8.4**                                                                                 | Transactions and row locks for seat inventory; the most widely hosted relational database.                |
+| Authentication | Session guards (agents, administrators), **JWT + OTP** (public API)                           | Two internal workspaces and one public API, each with the right mechanism.                                |
+| Permissions    | **spatie/laravel-permission**                                                                 | Rights per destination and per module, stored as data.                                                    |
+| Documents      | **DomPDF**, **Laravel Excel**                                                                 | Contracts, e-tickets and airline manifests generated on the server.                                       |
+| Interface      | Blade, a hand-written CSS theme, Bootstrap 4 grid, FullCalendar, Chart.js, select2, flatpickr | Fast server-rendered pages, no build step required to run the application.                                |
+| Containers     | **Docker** (PHP 8.4 CLI image + MySQL 8.4)                                                    | One command to run the full demo anywhere.                                                                |
+| Tests          | **PHPUnit 11**, **Playwright**                                                                | Business flows on the server, every page and form in a real browser.                                      |
 
 ## Architecture
 
@@ -461,17 +459,17 @@ Changes apply to both workspaces, the sign-in page and the e-mails.
                  └──────────────────────────────┘      └──────────────────────┘──► SMS gateway
 ```
 
-| Layer | Location |
-|---|---|
-| Routes | `routes/agent.php`, `routes/admin.php`, `routes/api.php`, `routes/web.php`: one file per workspace |
-| Controllers | `app/Http/Controllers/{Agent,Admin,Api,Auth}` |
-| Domain services | `app/Services`: booking notifications, sales statistics, leave balances, quotes, SMS |
-| Models | `app/Models`: 56 Eloquent models over 63 tables |
-| Scheduled jobs | `app/Console/Commands`: ticketing alerts, allotment statuses, leave accrual, rest days |
-| Branding & destinations | `app/Support/Branding`: read from the database and cached |
-| Permissions | `app/Support/AgentPermissions`: destination rights generated, module rights declared once |
-| Interface | `resources/views`, `public/css/tc/theme.css`, `public/js/tc/ui.js` |
-| Demo data | `database/seeders/Demo`: deterministic, one seeder per domain |
+| Layer                   | Location                                                                                           |
+| ----------------------- | -------------------------------------------------------------------------------------------------- |
+| Routes                  | `routes/agent.php`, `routes/admin.php`, `routes/api.php`, `routes/web.php`: one file per workspace |
+| Controllers             | `app/Http/Controllers/{Agent,Admin,Api,Auth}`                                                      |
+| Domain services         | `app/Services`: booking notifications, sales statistics, leave balances, quotes, SMS               |
+| Models                  | `app/Models`: 56 Eloquent models over 63 tables                                                    |
+| Scheduled jobs          | `app/Console/Commands`: ticketing alerts, allotment statuses, leave accrual, rest days             |
+| Branding & destinations | `app/Support/Branding`: read from the database and cached                                          |
+| Permissions             | `app/Support/AgentPermissions`: destination rights generated, module rights declared once          |
+| Interface               | `resources/views`, `public/css/tc/theme.css`, `public/js/tc/ui.js`                                 |
+| Demo data               | `database/seeders/Demo`: deterministic, one seeder per domain                                      |
 
 Key implementation choices:
 
@@ -482,14 +480,14 @@ Key implementation choices:
 
 ## Built to scale
 
-| Growth step | How the template handles it |
-|---|---|
-| **New destinations** | Added from the admin panel; menus, screens and rights follow automatically. |
-| **New agencies and partners** | Agencies are data; partner rights and data isolation are built in. |
-| **A bigger team** | Rights per destination and module, super agents for supervision, planning and balances computed in constant time. |
-| **More traffic** | Stateless application servers behind a load balancer, configuration and route caching, queue-ready mail and jobs, MySQL as the single source of truth. |
-| **Your own website** | The JSON API already exposes search, quotes, bookings, payments and customer accounts. |
-| **Your own features** | Conventional Laravel structure and a test suite that reports immediately when a change breaks a page, a link or a form. |
+| Growth step                   | How the template handles it                                                                                                                            |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **New destinations**          | Added from the admin panel; menus, screens and rights follow automatically.                                                                            |
+| **New agencies and partners** | Agencies are data; partner rights and data isolation are built in.                                                                                     |
+| **A bigger team**             | Rights per destination and module, super agents for supervision, planning and balances computed in constant time.                                      |
+| **More traffic**              | Stateless application servers behind a load balancer, configuration and route caching, queue-ready mail and jobs, MySQL as the single source of truth. |
+| **Your own website**          | The JSON API already exposes search, quotes, bookings, payments and customer accounts.                                                                 |
+| **Your own features**         | Conventional Laravel structure and a test suite that reports immediately when a change breaks a page, a link or a form.                                |
 
 ## Quality & testing
 
@@ -511,23 +509,23 @@ npm test                                             # browser tests, database t
 
 ## Configuration
 
-| Setting | Where |
-|---|---|
-| Agency name, logos, colours | Administration › Identité & couleurs |
-| Destinations | Administration › Destinations |
-| Notification e-mails, CORS origins, departure country | `.env` → `config/agency.php` |
-| Card payments (Paybox) | `PAYBOX_*` in `.env` |
-| SMS gateway (iSendPro) | `ISENDPRO*` in `.env` |
-| Mail | `MAIL_*` in `.env`: locally, e-mails and one-time codes are written to `storage/logs/` |
-| Language | `APP_LOCALE` in `.env` |
-| Logs | `LOG_STACK=daily` (add `stderr` in containers that collect output) |
+| Setting                                               | Where                                                                                  |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Agency name, logos, colours                           | Administration › Identité & couleurs                                                   |
+| Destinations                                          | Administration › Destinations                                                          |
+| Notification e-mails, CORS origins, departure country | `.env` → `config/agency.php`                                                           |
+| Card payments (Paybox)                                | `PAYBOX_*` in `.env`                                                                   |
+| SMS gateway (iSendPro)                                | `ISENDPRO*` in `.env`                                                                  |
+| Mail                                                  | `MAIL_*` in `.env`: locally, e-mails and one-time codes are written to `storage/logs/` |
+| Language                                              | `APP_LOCALE` in `.env`                                                                 |
+| Logs                                                  | `LOG_STACK=daily` (add `stderr` in containers that collect output)                     |
 
 ## FAQ
 
 <details>
 <summary><strong>Can I sell destinations other than the demo ones?</strong></summary>
 
-Yes. Destinations are data: create one in *Administration › Destinations* and its flight menus, screens and agent
+Yes. Destinations are data: create one in _Administration › Destinations_ and its flight menus, screens and agent
 right appear immediately. Nothing in the code refers to a specific country.
 
 </details>
@@ -551,7 +549,7 @@ structure makes other products straightforward to add.
 <details>
 <summary><strong>How do I put my own brand on it?</strong></summary>
 
-Upload your logos and choose your colours in *Administration › Identité & couleurs*. Both workspaces, the sign-in
+Upload your logos and choose your colours in _Administration › Identité & couleurs_. Both workspaces, the sign-in
 page and the e-mails pick them up instantly.
 
 </details>
