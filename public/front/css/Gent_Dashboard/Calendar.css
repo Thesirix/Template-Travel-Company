@@ -1,0 +1,17 @@
+        /* --------------------background danger zone----------------------------  */
+        #calendar-team .fc-bg-event {
+            background-color: #ffd6d6 !important;
+        }
+
+        #calendar-team .fc-bg-event {
+            pointer-events: none !important;
+        }
+
+        /* -------------work day 
+        
+        
+        /*Fond gris pour les jours travaillés (présence) */
+#calendar-team .fc-daygrid-day.jour-present {
+    background-color: #E9EBE9 !important;
+}
+

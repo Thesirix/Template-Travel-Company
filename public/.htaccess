@@ -1,0 +1,27 @@
+# PH pagespeed start
+<IfModule pagespeed_module>
+ModPagespeed on
+ModPagespeedRewriteLevel PassThrough
+ModPagespeedEnableFilters add_head,fallback_rewrite_css_urls,flatten_css_imports,rewrite_style_attributes_with_url,extend_cache,insert_dns_prefetch,collapse_whitespace,convert_meta_tags,remove_comments,elide_attributes,trim_urls,pedantic,combine_javascript,canonicalize_javascript_libraries,rewrite_javascript,defer_javascript,inline_javascript,rewrite_css,combine_css,move_css_to_head,inline_css,inline_import_to_link,move_css_above_scripts,inline_preview_images,insert_img_dimensions,rewrite_images,recompress_images,convert_jpeg_to_progressive,resize_mobile_images,sprite_images,lazyload_images,local_storage_cache
+</IfModule>
+# PH pagespeed end 
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>

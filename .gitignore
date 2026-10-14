@@ -1,0 +1,24 @@
+/node_modules
+/vendor
+/public/hot
+/public/storage
+/storage/*.key
+.env
+.env.backup
+.phpunit.result.cache
+/.idea
+/.vscode
+/.scannerwork
+.DS_Store
+Thumbs.db
+npm-debug.log
+yarn-error.log
+# Dumps et exports : jamais de données réelles dans le repo
+*.sql
+!database/schema/*.sql
+*.xlsx
+# Fichiers envoyés depuis l'admin (logo, icônes de destinations)
+/public/uploads
+/storage/framework/testing
+/.phpunit.cache
+/tests/Browser/output

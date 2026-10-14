@@ -1,0 +1,13 @@
+.env
+.git
+vendor
+node_modules
+tests/Browser/node_modules
+tests/Browser/output
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/framework/testing
+bootstrap/cache/*.php
+public/storage

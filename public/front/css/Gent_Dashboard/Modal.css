@@ -1,0 +1,57 @@
+/* Modales du tableau de bord agent (motivation, refus de congé...), aux couleurs de l'agence */
+.modal-content.glassmorphism {
+    background: var(--tc-surface, #fff);
+    border-radius: var(--tc-radius-lg, 20px);
+    box-shadow: var(--tc-shadow-lg);
+    border: 0;
+    overflow: hidden;
+}
+
+.modal-header.custom-header {
+    position: relative;
+    justify-content: center;
+    padding: 26px 24px 22px;
+    text-align: center;
+    border: 0;
+    background: linear-gradient(135deg, var(--tc-primary-dark), var(--tc-primary) 55%, var(--tc-accent) 140%);
+}
+
+.modal-header.custom-header .modal-title {
+    color: var(--tc-on-primary, #fff) !important;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.glassmorphism .modal-body h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--tc-text-2);
+    margin: 10px 0;
+}
+
+.glassmorphism .modal-body h3 span {
+    display: inline-block;
+    white-space: pre;
+}
+
+.glassmorphism .modal-footer {
+    justify-content: center;
+}
+
+.btn-glass {
+    background: linear-gradient(135deg, var(--tc-primary), var(--tc-primary-dark));
+    color: var(--tc-on-primary, #fff);
+    border: none;
+    padding: 11px 24px;
+    border-radius: 12px;
+    font-weight: 800;
+    box-shadow: 0 10px 22px -10px rgba(var(--tc-primary-rgb), .9);
+    transition: transform .2s var(--tc-spring), box-shadow .2s;
+}
+
+.btn-glass:hover {
+    color: var(--tc-on-primary, #fff);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 26px -10px rgba(var(--tc-primary-rgb), 1);
+}

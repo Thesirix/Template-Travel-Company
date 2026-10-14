@@ -1,0 +1,14 @@
+{
+  "name": "travel-company-browser-tests",
+  "private": true,
+  "type": "module",
+  "description": "Tests de l'application dans un vrai navigateur (pages, liens, formulaires, captures)",
+  "scripts": {
+    "test": "node run.mjs",
+    "test:rapide": "node run.mjs --sans-formulaires",
+    "test:captures": "node run.mjs --captures"
+  },
+  "dependencies": {
+    "playwright": "1.64.0"
+  }
+}

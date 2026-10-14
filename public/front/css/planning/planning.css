@@ -1,0 +1,81 @@
+
+        .fc-event.approved-conge div,
+        .fc-event.approved-conge {
+            color: #000 !important;
+        }
+
+        .fc-event.waiting-conge div,
+        .fc-event.waiting-conge {
+            color: #fff !important;
+        }
+
+        .fc-license-message {
+            display: none !important;
+        }
+
+        /* toute la ligne du nom d'agence */
+        .fc-resource-group {
+            background-color: rgba(var(--tc-primary-rgb), .06) !important;
+            position: relative;
+            z-index: 3;
+        }
+
+        /* celule du nom a gauche */
+        .fc-resource-group .fc-datagrid-cell-cushion {
+            background-color: rgba(var(--tc-primary-rgb), .06) !important;
+            font-weight: 800;
+            color: var(--tc-primary);
+        }
+
+
+        /* boutons : couleurs du thème (public/css/tc/theme.css) */
+
+        .fc-timeline-lane.fc-resource-group>div:nth-child(2) {
+            display: none !important;
+        }
+
+        /* tableau de droite : soldes des agents */
+        .tc-planning { display: flex; gap: 16px; align-items: flex-start; }
+        .tc-planning #calendar { flex: 1; min-width: 0; }
+        #agentInfos { width: 280px; flex-shrink: 0; overflow-x: auto; }
+        #agentInfos table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 13px; margin-top: 64px; }
+        #agentInfos th, #agentInfos td { border-bottom: 1px solid var(--tc-border); text-align: center; padding: 4px; height: 32px; font-variant-numeric: tabular-nums; }
+        #agentInfos thead th { background: var(--tc-surface-2); color: var(--tc-muted); font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; border-top: 1px solid var(--tc-border); }
+        #agentInfos thead th:first-child { border-radius: 10px 0 0 0; border-left: 1px solid var(--tc-border); }
+        #agentInfos thead th:last-child { border-radius: 0 10px 0 0; border-right: 1px solid var(--tc-border); }
+        #agentInfos td { font-weight: 700; color: var(--tc-text-2); }
+        #agentInfos td:first-child { border-left: 1px solid var(--tc-border); }
+        #agentInfos td:last-child { border-right: 1px solid var(--tc-border); color: var(--tc-primary); }
+        #agentInfos tbody tr:nth-child(even) { background: var(--tc-surface-2); }
+        #agentInfos table tr.spacer-row td { border: none !important; padding: 0; background: transparent; }
+
+        /* -------------------------input modal "plus"----------------------- */
+        select.form-select {
+            display: block;
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: 0.375rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        select.form-select:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+        }
+
+        #calendar .fc-bg-event.danger-zone {
+            background: #ffd6d6 !important;
+            pointer-events: none !important;
+        }
+
+        /* curseur tableau de gauche */
+        .fc-datagrid-cell-main:not(:empty):not(:has(button)) {
+            cursor: pointer;
+        }

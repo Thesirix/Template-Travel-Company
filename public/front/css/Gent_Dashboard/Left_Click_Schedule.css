@@ -1,0 +1,21 @@
+        /* --------------------------------------------------menu des couleurs clique gauche -------------------------- */
+
+        .context-menu {
+            box-shadow: 10px 8px 8px rgba(0, 0, 0, 0.2);
+
+        }
+
+        .color-swatch {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            border: 2px solid #00000022;
+        }
