@@ -577,4 +577,3 @@ No. `docker compose up` builds the application image, starts MySQL, creates the 
 With Docker: `DEMO_RESET=true docker compose up`. Without Docker: `php artisan migrate:fresh --seed`.
 
 </details>
-# Template-Travel-Company
