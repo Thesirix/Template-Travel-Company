@@ -67,7 +67,7 @@
                         @php($flight = $entry->reservation?->vol)
                         <tr>
                             <td style="white-space: nowrap">{{ \Illuminate\Support\Carbon::parse($entry->created_at)->format('d/m/Y H:i') }}</td>
-                            <td>{{ $entry->gent ? $entry->gent->prenom . ' ' . $entry->gent->name : '—' }}</td>
+                            <td>{{ $entry->gent ? $entry->gent->prenom . ' ' . $entry->gent->name : '-' }}</td>
                             <td><span class="badge badge-light">{{ $entry->type }}</span></td>
                             <td>#{{ $entry->reservation_id }}</td>
                             <td>
@@ -75,7 +75,7 @@
                                     {{ $flight->itineraire }} · {{ \Illuminate\Support\Carbon::parse($flight->date_aller)->format('d/m/Y') }}
                                     <div class="small text-gray-500">{{ $flight->volGroup->name ?? '' }}</div>
                                 @else
-                                    —
+                                    -
                                 @endif
                             </td>
                             <td class="small text-gray-600">{{ \Illuminate\Support\Str::limit((string) $entry->details, 80) }}</td>

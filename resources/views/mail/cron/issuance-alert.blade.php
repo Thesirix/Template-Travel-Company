@@ -5,7 +5,7 @@
         <ul>
             @foreach($group->flights as $flight)
                 <li>
-                    PNR {{ $flight->pnr ?: '—' }}, aller le {{ \Illuminate\Support\Carbon::parse($flight->date_aller)->format('d/m/Y') }}
+                    PNR {{ $flight->pnr ?: '-' }}, aller le {{ \Illuminate\Support\Carbon::parse($flight->date_aller)->format('d/m/Y') }}
                     @if($flight->date_retour), retour le {{ \Illuminate\Support\Carbon::parse($flight->date_retour)->format('d/m/Y') }}@endif
                 </li>
             @endforeach

@@ -35,13 +35,13 @@
                     <div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">Voyage</h6></div>
                     <div class="card-body">
                         <dl class="mb-0">
-                            <dt>Compagnie</dt><dd>{{ $reservation->vol->company->nom ?? '—' }}</dd>
+                            <dt>Compagnie</dt><dd>{{ $reservation->vol->company->nom ?? '-' }}</dd>
                             <dt>Type</dt><dd>{{ $types[$reservation->type_voyage] ?? $reservation->type_voyage }}</dd>
-                            <dt>Aller</dt><dd>{{ $reservation->vol->date_aller ? \Illuminate\Support\Carbon::parse($reservation->vol->date_aller)->format('d/m/Y') : '—' }}</dd>
+                            <dt>Aller</dt><dd>{{ $reservation->vol->date_aller ? \Illuminate\Support\Carbon::parse($reservation->vol->date_aller)->format('d/m/Y') : '-' }}</dd>
                             <dt>Retour</dt>
                             <dd>
                                 @php($return = $reservation->volRetour ? $reservation->volRetour->date_aller : $reservation->vol->date_retour)
-                                {{ $return && $reservation->type_voyage !== 'aller_simple' ? \Illuminate\Support\Carbon::parse($return)->format('d/m/Y') : '—' }}
+                                {{ $return && $reservation->type_voyage !== 'aller_simple' ? \Illuminate\Support\Carbon::parse($return)->format('d/m/Y') : '-' }}
                             </dd>
                             <dt>Passagers</dt>
                             <dd>{{ $reservation->nb_adult }} adulte(s), {{ $reservation->nb_enfant }} enfant(s), {{ $reservation->nb_bebe }} bébé(s)</dd>
@@ -69,9 +69,9 @@
                                 <tr>
                                     <td>{{ $passenger->nom }} {{ $passenger->prenom }}</td>
                                     <td>{{ ucfirst($passenger->type) }}</td>
-                                    <td>{{ $passenger->date_naissance ? \Illuminate\Support\Carbon::parse($passenger->date_naissance)->format('d/m/Y') : '—' }}</td>
-                                    <td>{{ $passenger->tele1 ?: '—' }}</td>
-                                    <td>{{ $passenger->dossier_etat ?: '—' }}</td>
+                                    <td>{{ $passenger->date_naissance ? \Illuminate\Support\Carbon::parse($passenger->date_naissance)->format('d/m/Y') : '-' }}</td>
+                                    <td>{{ $passenger->tele1 ?: '-' }}</td>
+                                    <td>{{ $passenger->dossier_etat ?: '-' }}</td>
                                 </tr>
                             @endforeach
                             </tbody>

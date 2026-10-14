@@ -12,7 +12,7 @@
 <body>
 @php
     $reservation = $boat->reservation;
-    $date = fn ($value) => $value ? \Illuminate\Support\Carbon::parse($value)->format('d/m/Y') : '—';
+    $date = fn ($value) => $value ? \Illuminate\Support\Carbon::parse($value)->format('d/m/Y') : '-';
     $titles = ['confirmer' => 'Traversée réservée', 'final' => 'Traversée confirmée', 'echange' => "Bon d'échange"];
 @endphp
 @if($brand->logoUrl())
@@ -23,8 +23,8 @@
 
 <h2>{{ $confirmed && $reservation ? $titles[$reservation->etat] ?? 'Réservation' : 'Demande de traversée enregistrée' }}</h2>
 <table>
-    <tr><td>Destination</td><td>{{ $boat->destination->name ?? '—' }}</td></tr>
-    <tr><td>Port de départ</td><td>{{ $boat->departurePort->name ?? '—' }}</td></tr>
+    <tr><td>Destination</td><td>{{ $boat->destination->name ?? '-' }}</td></tr>
+    <tr><td>Port de départ</td><td>{{ $boat->departurePort->name ?? '-' }}</td></tr>
     @if($boat->arrivalPort)
         <tr><td>Port de retour</td><td>{{ $boat->arrivalPort->name }}</td></tr>
     @endif
@@ -32,9 +32,9 @@
     @if($boat->date_retour)
         <tr><td>Retour</td><td>{{ $date($boat->date_retour) }}</td></tr>
     @endif
-    <tr><td>Compagnie</td><td>{{ $boat->company->name ?? '—' }}</td></tr>
-    <tr><td>Installation</td><td>{{ $boat->accommodation->name ?? '—' }}</td></tr>
-    <tr><td>Assurance</td><td>{{ $boat->insurance->name ?? '—' }}</td></tr>
+    <tr><td>Compagnie</td><td>{{ $boat->company->name ?? '-' }}</td></tr>
+    <tr><td>Installation</td><td>{{ $boat->accommodation->name ?? '-' }}</td></tr>
+    <tr><td>Assurance</td><td>{{ $boat->insurance->name ?? '-' }}</td></tr>
     @if($confirmed && $reservation)
         <tr><td>N° de réservation</td><td>{{ $reservation->num_reservation }}</td></tr>
         <tr><td>Date d'option</td><td>{{ $date($reservation->date_option) }}</td></tr>
@@ -59,11 +59,11 @@
 @if($boat->hasVehicle())
     <h2>Véhicule</h2>
     <table>
-        <tr><td>Type</td><td>{{ $boat->vehicle->name ?? '—' }}</td></tr>
+        <tr><td>Type</td><td>{{ $boat->vehicle->name ?? '-' }}</td></tr>
         <tr><td>Marque / modèle</td><td>{{ $boat->voiture_marque }} {{ $boat->voiture_modele }}</td></tr>
         <tr><td>Immatriculation</td><td>{{ $boat->voiture_matricule }}</td></tr>
-        <tr><td>Gabarit</td><td>{{ $boat->vehicleSize->name ?? '—' }}</td></tr>
-        <tr><td>Assurance</td><td>{{ $boat->vehicleInsurance->name ?? '—' }}</td></tr>
+        <tr><td>Gabarit</td><td>{{ $boat->vehicleSize->name ?? '-' }}</td></tr>
+        <tr><td>Assurance</td><td>{{ $boat->vehicleInsurance->name ?? '-' }}</td></tr>
     </table>
 @endif
 

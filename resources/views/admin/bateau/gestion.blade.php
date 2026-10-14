@@ -47,7 +47,7 @@
                                     <tr>
                                         <td>{{ $item->name }}</td>
                                         @if($catalog['perDestination'])
-                                            <td class="text-gray-500">{{ $item->destination->name ?? '—' }}</td>
+                                            <td class="text-gray-500">{{ $item->destination->name ?? '-' }}</td>
                                         @endif
                                         <td class="text-right">
                                             <form method="POST" action="{{ route('admin.bateau.destroy', $key) }}" onsubmit="return confirm('Supprimer « {{ $item->name }} » ?')">

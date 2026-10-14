@@ -25,11 +25,11 @@
                     <div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">Coordonnées</h6></div>
                     <div class="card-body">
                         <dl class="mb-0">
-                            <dt>Téléphone</dt><dd>{{ $client->phoneNumber ?: '—' }}</dd>
-                            <dt>E-mail</dt><dd>{{ $client->email ?: '—' }}</dd>
-                            <dt>Ville</dt><dd>{{ trim($client->city . ' ' . ($client->country ? '(' . $client->country . ')' : '')) ?: '—' }}</dd>
-                            <dt>Passeport expire le</dt><dd>{{ $client->expire_passport ? \Illuminate\Support\Carbon::parse($client->expire_passport)->format('d/m/Y') : '—' }}</dd>
-                            <dt>À rappeler le</dt><dd>{{ $client->recall ? \Illuminate\Support\Carbon::parse($client->recall)->format('d/m/Y') : '—' }}</dd>
+                            <dt>Téléphone</dt><dd>{{ $client->phoneNumber ?: '-' }}</dd>
+                            <dt>E-mail</dt><dd>{{ $client->email ?: '-' }}</dd>
+                            <dt>Ville</dt><dd>{{ trim($client->city . ' ' . ($client->country ? '(' . $client->country . ')' : '')) ?: '-' }}</dd>
+                            <dt>Passeport expire le</dt><dd>{{ $client->expire_passport ? \Illuminate\Support\Carbon::parse($client->expire_passport)->format('d/m/Y') : '-' }}</dd>
+                            <dt>À rappeler le</dt><dd>{{ $client->recall ? \Illuminate\Support\Carbon::parse($client->recall)->format('d/m/Y') : '-' }}</dd>
                             <dt>Suivi par</dt>
                             <dd class="mb-0">{{ $client->gent ? $client->gent->prenom . ' ' . $client->gent->name . ' · ' . ($client->gent->agence->name ?? '') : ($client->provenance ?: 'Site web') }}</dd>
                         </dl>
@@ -74,7 +74,7 @@
                                             <span class="badge badge-warning">En cours</span>
                                         @endif
                                     </td>
-                                    <td>{{ $request->gentRelation ? $request->gentRelation->prenom . ' ' . $request->gentRelation->name : '—' }}</td>
+                                    <td>{{ $request->gentRelation ? $request->gentRelation->prenom . ' ' . $request->gentRelation->name : '-' }}</td>
                                 </tr>
                             @empty
                                 <tr>

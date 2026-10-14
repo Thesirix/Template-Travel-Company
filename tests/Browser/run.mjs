@@ -135,7 +135,7 @@ async function main() {
   const minutes = ((Date.now() - started) / 60000).toFixed(1);
   log.title('Bilan');
   for (const [name, count] of Object.entries(failures)) (count ? log.ko : log.ok)(`${name} : ${count ? count + ' erreur(s)' : 'OK'}`);
-  console.log(total ? `\n\x1b[31m${total} erreur(s)\x1b[0m — détail dans tests/Browser/output/ (${minutes} min)` : `\n\x1b[32mTout est vert\x1b[0m (${minutes} min)`);
+  console.log(total ? `\n\x1b[31m${total} erreur(s)\x1b[0m, détail dans tests/Browser/output/ (${minutes} min)` : `\n\x1b[32mTout est vert\x1b[0m (${minutes} min)`);
   if (option('--captures')) console.log(`Captures : ${path.join(OUTPUT, 'captures')}`);
   if (option('--garder-serveur')) console.log(`Serveur de test toujours allumé sur ${BASE} (pid ${server?.pid})`);
   process.exit(total ? 1 : 0);

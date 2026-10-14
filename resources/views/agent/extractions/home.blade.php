@@ -48,7 +48,7 @@
         <div class="card mb-4">
             <div class="card-header py-3 d-flex align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    Contacts{{ $destination ? ' — ' . $destination->name : '' }}
+                    Contacts{{ $destination ? ', ' . $destination->name : '' }}
                 </h6>
                 <span class="badge badge-primary">{{ $contacts->count() }}</span>
             </div>

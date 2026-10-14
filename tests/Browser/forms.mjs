@@ -165,7 +165,7 @@ export async function checkForms({ destructive = true } = {}) {
   if (guided.length) log.info(`${guided.length} à étapes JavaScript, testés par les scénarios guidés : ${guided.map((r) => r.form.split(' ')[1]).join(', ')}`);
   if (manual.length) {
     log.info(`${manual.length} non envoyés automatiquement (à couvrir par un scénario, voir output/forms.json) :`);
-    manual.forEach((r) => log.info(`  · ${r.form}  (page /${r.page})${r.blocked?.length ? ' — ' + r.blocked.join(', ') : ''}`));
+    manual.forEach((r) => log.info(`  · ${r.form}  (page /${r.page})${r.blocked?.length ? ', ' + r.blocked.join(', ') : ''}`));
   }
   return failed.length;
 }

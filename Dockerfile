@@ -1,4 +1,4 @@
-# Template Travel Company — image de démonstration (PHP 8.4 + extensions + dépendances Composer)
+# Template Travel Company, image de démonstration (PHP 8.4 + extensions + dépendances Composer)
 # Lancement : docker compose up   →   http://localhost:8000
 FROM php:8.4-cli
 

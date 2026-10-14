@@ -45,7 +45,7 @@
                         <div><strong data-tc-count="{{ $destination->vol_groups_count }}">0</strong><span>groupes</span></div>
                     </div>
                     <div class="tc-dest__meta">
-                        <span class="tc-chip"><i class="fa-solid fa-flag"></i> {{ $destination->country->nom ?? '—' }}</span>
+                        <span class="tc-chip"><i class="fa-solid fa-flag"></i> {{ $destination->country->nom ?? '-' }}</span>
                         @if($destination->permissionName())
                             <span class="tc-chip" title="Permission agent"><i class="fa-solid fa-key"></i> {{ $destination->permissionName() }}</span>
                         @endif

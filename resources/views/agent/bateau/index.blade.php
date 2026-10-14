@@ -12,7 +12,7 @@
 @php
     $routes = ['pending' => 'agent.bateau.pending', 'confirmer' => 'agent.bateau.confirmed', 'final' => 'agent.bateau.sold', 'echange' => 'agent.bateau.vouchers'];
     $reserved = $status !== 'pending';
-    $date = fn ($value) => $value ? \Illuminate\Support\Carbon::parse($value)->format('d/m/Y') : '—';
+    $date = fn ($value) => $value ? \Illuminate\Support\Carbon::parse($value)->format('d/m/Y') : '-';
 @endphp
 
 @section('content')
@@ -122,19 +122,19 @@
                         @php($lead = $booking->passengers->firstWhere('respo', true) ?? $booking->passengers->first())
                         <tr>
                             <td>{{ $date($booking->created_at) }}</td>
-                            <td>{{ $lead ? $lead->nom . ' ' . $lead->prenom : '—' }}</td>
-                            <td>{{ $booking->destination->name ?? '—' }}</td>
-                            <td>{{ $booking->departurePort->name ?? '—' }}{{ $booking->arrivalPort ? ' ⇄ ' . $booking->arrivalPort->name : '' }}</td>
+                            <td>{{ $lead ? $lead->nom . ' ' . $lead->prenom : '-' }}</td>
+                            <td>{{ $booking->destination->name ?? '-' }}</td>
+                            <td>{{ $booking->departurePort->name ?? '-' }}{{ $booking->arrivalPort ? ' ⇄ ' . $booking->arrivalPort->name : '' }}</td>
                             <td>{{ $date($booking->date_aller) }}</td>
                             <td>{{ $date($booking->date_retour) }}</td>
-                            <td>{{ $booking->company->name ?? '—' }}</td>
+                            <td>{{ $booking->company->name ?? '-' }}</td>
                             <td>{{ $booking->passengerSummary() }}</td>
-                            <td>{{ $booking->hasVehicle() ? $booking->voiture_matricule : '—' }}</td>
+                            <td>{{ $booking->hasVehicle() ? $booking->voiture_matricule : '-' }}</td>
                             @if($reserved)
-                                <td>{{ $booking->reservation->num_reservation ?? '—' }}</td>
+                                <td>{{ $booking->reservation->num_reservation ?? '-' }}</td>
                                 <td>{{ $date($booking->reservation?->date_option) }}</td>
                             @endif
-                            <td>{{ $booking->agent->prenom ?? '—' }}</td>
+                            <td>{{ $booking->agent->prenom ?? '-' }}</td>
                             <td class="text-right"><a class="btn btn-sm btn-primary" href="{{ route('agent.bateau.show', $booking) }}">Ouvrir</a></td>
                         </tr>
                     @empty

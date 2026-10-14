@@ -9,7 +9,7 @@
 
 ### The complete back-office for companies that sell travel.
 
-**Flights, ferries, seat allotments, quotes, online payments and team planning — in one place, ready to carry your brand.**
+**Flights, ferries, seat allotments, quotes, online payments and team planning, in one place, ready to carry your brand.**
 
 [![PHP 8.4](https://img.shields.io/badge/PHP-8.4-777BB4?style=flat-square&logo=php&logoColor=white)](#tech-stack)
 [![Laravel 13](https://img.shields.io/badge/Laravel-13-FF2D20?style=flat-square&logo=laravel&logoColor=white)](#tech-stack)
@@ -49,7 +49,7 @@ source code: deploy it as it is, rebrand it in minutes, or extend it into your o
 |---|---|
 | **One tool for the whole sales chain** | From the seat held with the airline to the issued ticket and the paid balance, every step lives on the same booking, with a full history of who did what. |
 | **Multi-agency from day one** | Head office, branches and partner agencies share one platform. Partners only sell what they are allowed to, never see purchase prices, and only access their own bookings. |
-| **No hard-coded destinations** | A destination is a row in the database. Adding a country creates its menus, its screens and its access right — no developer needed. |
+| **No hard-coded destinations** | A destination is a row in the database. Adding a country creates its menus, its screens and its access right, no developer needed. |
 | **White label** | Agency name, logos (light background, dark background, icon) and brand colours are set from the admin panel and applied everywhere instantly. |
 | **Fine-grained access rights** | Each agent gets rights per destination and per module: ferries, quotes, payments, exports, allotments, procedures, team planning. |
 | **Built for daily operations** | Ticketing deadline alerts, automatic option expiry, monthly leave accrual, Excel exports, PDF contracts and e-tickets, SMS quotes. |
@@ -59,7 +59,7 @@ source code: deploy it as it is, rebrand it in minutes, or extend it into your o
 
 There are two ways to run the demo. Both end at **http://localhost:8000** with a complete, pre-filled data set.
 
-### Option 1 — Docker, one command (recommended)
+### Option 1: Docker, one command (recommended)
 
 All you need is [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Windows, macOS) or Docker Engine (Linux).
 
@@ -84,7 +84,7 @@ Template Travel Company est prêt : http://localhost:8000
 | `docker compose down` | Stop everything (data is kept) |
 | `docker compose down -v` | Stop everything and delete the database |
 
-### Option 2 — PHP on your machine
+### Option 2: PHP on your machine
 
 Requirements: **PHP 8.4** with Composer (the easiest way is [Laravel Herd](https://herd.laravel.com)) and Docker for MySQL only.
 
@@ -122,7 +122,7 @@ The other demo agents sign in with `firstname.lastname@travel-company.test`, for
 
 | | |
 |---|---|
-| Agencies | 5 — Paris head office, Marseille and Bordeaux branches, Lyon and Lille partners |
+| Agencies | 5, Paris head office, Marseille and Bordeaux branches, Lyon and Lille partners |
 | Team | 1 administrator, 14 agents (one super agent, one deactivated former agent) |
 | Destinations | Italy, Greece, Portugal, Canada, each with its flight groups and seasons |
 | Flights | Round trips and separate outbound / return legs from Paris, Lyon and Marseille |
@@ -154,12 +154,12 @@ password are ignored, and a former employee whose account was deactivated is ref
 
 The first screen an agent sees every morning:
 
-- **Key figures** — bookings and revenue of the current month, clients followed, open client requests.
-- **My sales over six months** — switch between number of bookings and amount.
-- **Next departures** — the five next flights with their airline, remaining seats and fill bar.
-- **Agenda** — a personal schedule and the leave calendar.
-- **My leave** — paid leave, rest days, public holidays, sick leave, other absences and days worked this year.
-- **To-do and notes** — tasks sent by the administration and personal notes, deleted in one click.
+- **Key figures**: bookings and revenue of the current month, clients followed, open client requests.
+- **My sales over six months**: switch between number of bookings and amount.
+- **Next departures**: the five next flights with their airline, remaining seats and fill bar.
+- **Agenda**: a personal schedule and the leave calendar.
+- **My leave**: paid leave, rest days, public holidays, sick leave, other absences and days worked this year.
+- **To-do and notes**: tasks sent by the administration and personal notes, deleted in one click.
 
 #### Selling a flight
 
@@ -167,15 +167,15 @@ The first screen an agent sees every morning:
 
 <img src="docs/screenshots/agent-sale.png" alt="Flight sales page" />
 
-Each destination opens on its flight groups (for example *Italy – Autumn*). The sales page shows:
+Each destination opens on its flight groups (for example *Italy - Autumn*). The sales page shows:
 
-- **Best sellers** — every agent ranked by passengers sold, with the split adults / children / infants.
-- **Sales per agency** — the same ranking per agency, head office and partners included.
-- **Fill rate per city** — outbound and return seats sold against seats available.
-- **Open flights** — route, dates, seats, sold (red under 50 %, green above), remaining, PNR, adult / child / infant
+- **Best sellers**: every agent ranked by passengers sold, with the split adults / children / infants.
+- **Sales per agency**: the same ranking per agency, head office and partners included.
+- **Fill rate per city**: outbound and return seats sold against seats available.
+- **Open flights**: route, dates, seats, sold (red under 50 %, green above), remaining, PNR, adult / child / infant
   prices (purchase price on hover, hidden from partner agencies), airline.
-- **Quote calculator** — choose adults, children and infants and get the price of the trip instantly.
-- **Registration** — passengers, insurance, documents and deposit, with seats reserved in a database transaction
+- **Quote calculator**: choose adults, children and infants and get the price of the trip instantly.
+- **Registration**: passengers, insurance, documents and deposit, with seats reserved in a database transaction
   so that a flight can never be oversold. Round trips and separate outbound / return legs are both supported.
 
 #### Following up bookings
@@ -191,8 +191,8 @@ flight with automatic seat re-allocation, record deposits, and print the contrac
 
 <img src="docs/screenshots/agent-issuance.png" alt="Ticketing" />
 
-Reserved to the head office. Every flight is listed with its three milestones — **D-60 name list, D-45 balance,
-D-35 ticketing** — its seats sold and remaining and its PNR. Opening a flight lists every passenger to verify, the
+Reserved to the head office. Every flight is listed with its three milestones, **D-60 name list, D-45 balance,
+D-35 ticketing**, its seats sold and remaining and its PNR. Opening a flight lists every passenger to verify, the
 invoice and balance of each booking, and exports the passenger manifest in the airlines' formats (generic Excel,
 Amadeus, Ethiopian, Volotea). A daily job e-mails the team when a deadline approaches.
 
@@ -227,7 +227,7 @@ Allotments are blocks of seats held with an airline before they are sold. The mo
 </tr>
 </table>
 
-Crossing requests go through four queues — **to handle, confirmed, sold, exchange vouchers** — filterable by
+Crossing requests go through four queues, **to handle, confirmed, sold, exchange vouchers**: filterable by
 destination, company, port, name, dates and agent, and exportable. A request holds the crossing (round trip or one
 way, ports, company, cabin, fare, travel insurance), the vehicle (type, make, model, plate, first registration,
 size, vehicle insurance, registration document) and the passengers (type, name, birth date, age at departure and
@@ -242,8 +242,8 @@ return checked against the fare, phone, e-mail, passport and its copy).
 </tr>
 </table>
 
-An agent captures a lead — trip type (flight or ferry), destination, departure and arrival cities from a world
-airport and port database, dates, travellers, luggage — finds or creates the client, builds the priced quote and
+An agent captures a lead, trip type (flight or ferry), destination, departure and arrival cities from a world
+airport and port database, dates, travellers, luggage, finds or creates the client, builds the priced quote and
 sends it by SMS. Every quote is listed with its route, dates, travellers and contact details.
 
 #### Card payments, exports and procedures
@@ -256,11 +256,11 @@ sends it by SMS. Every quote is listed with its route, dates, travellers and con
 </tr>
 </table>
 
-- **Card payments** — the cardholder's debit authorisation is filled in, then handed over to the secure payment
+- **Card payments**: the cardholder's debit authorisation is filled in, then handed over to the secure payment
   page (Paybox). The bank's return is verified with its signature before the payment is recorded and e-mailed.
-- **Exports** — every contact of a destination (passengers and quote requests), with source, agency and seller,
+- **Exports**: every contact of a destination (passengers and quote requests), with source, agency and seller,
   exported to Excel.
-- **Procedures** — the agency's internal knowledge base: PDF guides, images and videos, opened in an in-page
+- **Procedures**: the agency's internal knowledge base: PDF guides, images and videos, opened in an in-page
   viewer without leaving the application.
 
 #### Team planning
@@ -270,7 +270,7 @@ sends it by SMS. Every quote is listed with its route, dates, travellers and con
 <img src="docs/screenshots/agent-planning.png" alt="Team planning" />
 
 Super agents see every agency on one timeline: paid leave, rest days, sick leave, attendance and high-season
-periods. Next to each agent, the balance is computed live — **opening balance, taken, accrued, remaining**.
+periods. Next to each agent, the balance is computed live, **opening balance, taken, accrued, remaining**.
 Leave can be added, approved, rejected, edited or deleted directly on the calendar, with concurrency protection
 when two managers edit the same request. The current month is embedded in the page, so the planning appears
 instantly; other months load on demand.
@@ -279,7 +279,7 @@ instantly; other months load on demand.
 
 <img src="docs/screenshots/partner-dashboard.png" alt="Partner agency dashboard" />
 
-A partner agent uses the same workspace with only what was granted — here two destinations and client quotes.
+A partner agent uses the same workspace with only what was granted, here two destinations and client quotes.
 Partners never see purchase prices and only open their own bookings; file management and ticketing stay with
 the head office.
 
@@ -305,14 +305,14 @@ next departures; team size (agents, agencies, clients); pending leave requests.
 </tr>
 </table>
 
-- **Destinations** — name, URL slug, country, colour, order and visibility. Each card shows its flights on sale,
+- **Destinations**: name, URL slug, country, colour, order and visibility. Each card shows its flights on sale,
   seats left and groups. Creating a destination creates its menus in both workspaces and its agent right; a
   destination that already has flights is hidden instead of deleted.
-- **Flights** — search by airline, route, type, dates and city; create, copy and edit flights with their legs and
+- **Flights**: search by airline, route, type, dates and city; create, copy and edit flights with their legs and
   stopovers, schedules, seats, prices per passenger type, closing deadline, baggage, conditions and itinerary
   colour; archive past flights.
-- **Flight groups** — seasons per destination (*Italy – Autumn*, *Canada – Spring*), round trip or multi-segment.
-- **Seats** — adjust the inventory of a flight in one place.
+- **Flight groups**: seasons per destination (*Italy - Autumn*, *Canada - Spring*), round trip or multi-segment.
+- **Seats**: adjust the inventory of a flight in one place.
 
 #### Catalogue
 
@@ -359,8 +359,8 @@ accounts deactivated without losing their history.
 <img src="docs/screenshots/admin-history.png" alt="Activity history" />
 
 Every client of the public website and of the agencies, searchable by name, e-mail or phone, with the agent who
-follows them and their quote history. The activity log records every action on bookings — creation, payment,
-change, cancellation — with its author, flight and amount, filterable by agent and by action.
+follows them and their quote history. The activity log records every action on bookings, creation, payment,
+change, cancellation, with its author, flight and amount, filterable by agent and by action.
 
 #### Brand identity
 
@@ -380,11 +380,11 @@ Changes apply to both workspaces, the sign-in page and the e-mails.
 </tr>
 </table>
 
-- **Quick search** — `Ctrl + K` lists every page the user can open; type two letters and press Enter.
-- **Focus mode** — the sidebar collapses to icons, and the choice is remembered.
-- **Page title** — the top bar always shows the workspace and the current page.
-- **Notifications** — every server message, validation error and action result appears as a toast.
-- **In-page documents** — guides, contracts, e-tickets and attachments open in a viewer with a download button.
+- **Quick search**: `Ctrl + K` lists every page the user can open; type two letters and press Enter.
+- **Focus mode**: the sidebar collapses to icons, and the choice is remembered.
+- **Page title**: the top bar always shows the workspace and the current page.
+- **Notifications**: every server message, validation error and action result appears as a toast.
+- **In-page documents**: guides, contracts, e-tickets and attachments open in a viewer with a download button.
 
 ## Feature reference
 
@@ -433,7 +433,7 @@ Changes apply to both workspaces, the sign-in page and the e-mails.
 | Public API (`/api`) | Customer accounts with JWT and one-time passwords, password reset, flight search, quotes, bookings, payments, airport search |
 | Scheduled jobs | Ticketing alerts every morning, allotment statuses every morning, monthly leave accrual, weekly rest days |
 | Documents | PDF contracts and e-tickets, Excel exports, transactional e-mails |
-| Integrations | Paybox card payments, iSendPro SMS — both optional and configured in `.env` |
+| Integrations | Paybox card payments, iSendPro SMS, both optional and configured in `.env` |
 
 ## Tech stack
 
@@ -463,22 +463,22 @@ Changes apply to both workspaces, the sign-in page and the e-mails.
 
 | Layer | Location |
 |---|---|
-| Routes | `routes/agent.php`, `routes/admin.php`, `routes/api.php`, `routes/web.php` — one file per workspace |
+| Routes | `routes/agent.php`, `routes/admin.php`, `routes/api.php`, `routes/web.php`: one file per workspace |
 | Controllers | `app/Http/Controllers/{Agent,Admin,Api,Auth}` |
-| Domain services | `app/Services` — booking notifications, sales statistics, leave balances, quotes, SMS |
-| Models | `app/Models` — 56 Eloquent models over 63 tables |
-| Scheduled jobs | `app/Console/Commands` — ticketing alerts, allotment statuses, leave accrual, rest days |
-| Branding & destinations | `app/Support/Branding` — read from the database and cached |
-| Permissions | `app/Support/AgentPermissions` — destination rights generated, module rights declared once |
+| Domain services | `app/Services`: booking notifications, sales statistics, leave balances, quotes, SMS |
+| Models | `app/Models`: 56 Eloquent models over 63 tables |
+| Scheduled jobs | `app/Console/Commands`: ticketing alerts, allotment statuses, leave accrual, rest days |
+| Branding & destinations | `app/Support/Branding`: read from the database and cached |
+| Permissions | `app/Support/AgentPermissions`: destination rights generated, module rights declared once |
 | Interface | `resources/views`, `public/css/tc/theme.css`, `public/js/tc/ui.js` |
-| Demo data | `database/seeders/Demo` — deterministic, one seeder per domain |
+| Demo data | `database/seeders/Demo`: deterministic, one seeder per domain |
 
 Key implementation choices:
 
-- **Seat inventory is never oversold** — seat counts change inside database transactions with row locks.
-- **Configuration is cache-safe** — no `env()` call outside `config/`, so `php artisan config:cache` is safe in production.
-- **Everything agency-specific is configuration or data** — notification addresses, CORS origins and departure country in `.env` (`config/agency.php`); brand and destinations in the database.
-- **Heavy screens are built for speed** — team planning and leave balances run a constant number of queries whatever the team size, and the current month is embedded in the page.
+- **Seat inventory is never oversold**: seat counts change inside database transactions with row locks.
+- **Configuration is cache-safe**: no `env()` call outside `config/`, so `php artisan config:cache` is safe in production.
+- **Everything agency-specific is configuration or data**: notification addresses, CORS origins and departure country in `.env` (`config/agency.php`); brand and destinations in the database.
+- **Heavy screens are built for speed**: team planning and leave balances run a constant number of queries whatever the team size, and the current month is embedded in the page.
 
 ## Built to scale
 
@@ -496,12 +496,12 @@ Key implementation choices:
 Two complementary suites, each running on its own database so that working data is never touched.
 
 ```bash
-php vendor/bin/phpunit                               # server tests — database travel_company_test
+php vendor/bin/phpunit                               # server tests, database travel_company_test
 cd tests/Browser && npm install && npx playwright install chromium
-npm test                                             # browser tests — database travel_company_e2e
+npm test                                             # browser tests, database travel_company_e2e
 ```
 
-- **PHPUnit — 100+ tests.** Complete business flows: flight sale and follow-up, ticketing, deposits, ferries,
+- **PHPUnit: 100+ tests.** Complete business flows: flight sale and follow-up, ticketing, deposits, ferries,
   allotments, quotes, leave and planning, card payment (including signature verification), public API,
   administration, single sign-in. Every form submission route of the application is called at least once.
 - **Playwright end-to-end suite** (`tests/Browser`). Opens every page, follows every link with each demo account,
@@ -518,7 +518,7 @@ npm test                                             # browser tests — databas
 | Notification e-mails, CORS origins, departure country | `.env` → `config/agency.php` |
 | Card payments (Paybox) | `PAYBOX_*` in `.env` |
 | SMS gateway (iSendPro) | `ISENDPRO*` in `.env` |
-| Mail | `MAIL_*` in `.env` — locally, e-mails and one-time codes are written to `storage/logs/` |
+| Mail | `MAIL_*` in `.env`: locally, e-mails and one-time codes are written to `storage/logs/` |
 | Language | `APP_LOCALE` in `.env` |
 | Logs | `LOG_STACK=daily` (add `stderr` in containers that collect output) |
 

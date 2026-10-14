@@ -9,7 +9,7 @@
     @include('agent.partials.top-nav')
 @endsection
 
-@php($date = fn ($value) => $value ? \Illuminate\Support\Carbon::parse($value)->format('d/m/Y') : '—')
+@php($date = fn ($value) => $value ? \Illuminate\Support\Carbon::parse($value)->format('d/m/Y') : '-')
 
 @section('content')
     <div class="container-fluid">
@@ -45,14 +45,14 @@
                     <div class="card-body">
                         <dl class="mb-0">
                             <dt>Trajet</dt><dd>{{ $option->departure_city }} → {{ $option->arrival_city }} ({{ $option->country }})</dd>
-                            <dt>Compagnie</dt><dd>{{ $option->company ?: '—' }}</dd>
+                            <dt>Compagnie</dt><dd>{{ $option->company ?: '-' }}</dd>
                             <dt>Aller / retour</dt><dd>{{ $date($option->date_aller) }} / {{ $date($option->date_retour) }}</dd>
                             <dt>Places</dt><dd>{{ $option->passengers->count() }} placée(s) sur {{ $option->seats }}</dd>
                             <dt>Classe · prix</dt><dd>{{ $option->cabin_class }} · {{ number_format((float) $option->price, 2, ',', ' ') }} €</dd>
                             <dt>Date limite</dt><dd>{{ $date($option->option_date) }}</dd>
                             <dt>PNR créé le</dt><dd>{{ $date($option->pnr_created_on) }}</dd>
                             @if($option->release)
-                                <dt>Relâchée</dt><dd>le {{ $date($option->release->created_at) }} par {{ $option->release->agent->prenom ?? '—' }}</dd>
+                                <dt>Relâchée</dt><dd>le {{ $date($option->release->created_at) }} par {{ $option->release->agent->prenom ?? '-' }}</dd>
                             @endif
                             @if($option->note)
                                 <dt>Note</dt><dd class="mb-0">{{ $option->note }}</dd>
@@ -75,9 +75,9 @@
                                     <td>{{ $passenger->type }}</td>
                                     <td>{{ $passenger->last_name }}</td>
                                     <td>{{ $passenger->first_name }}</td>
-                                    <td>{{ $passenger->sale_price !== null ? number_format((float) $passenger->sale_price, 2, ',', ' ') . ' €' : '—' }}</td>
-                                    <td>{{ $passenger->deposit !== null ? number_format((float) $passenger->deposit, 2, ',', ' ') . ' €' : '—' }}</td>
-                                    <td>{{ $passenger->deposit_number ?: '—' }}</td>
+                                    <td>{{ $passenger->sale_price !== null ? number_format((float) $passenger->sale_price, 2, ',', ' ') . ' €' : '-' }}</td>
+                                    <td>{{ $passenger->deposit !== null ? number_format((float) $passenger->deposit, 2, ',', ' ') . ' €' : '-' }}</td>
+                                    <td>{{ $passenger->deposit_number ?: '-' }}</td>
                                     <td class="text-right">
                                         @if($option->isActive())
                                             <form method="POST" action="{{ route('agent.block-power.passengers.destroy', $passenger) }}" onsubmit="return confirm('Retirer ce passager ?')">

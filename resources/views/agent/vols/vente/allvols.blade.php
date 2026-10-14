@@ -191,7 +191,7 @@
                                                     </td>
                                                 @endif
                                                 <td>
-                                                    {{ $flight->company->nom ?? '—' }}
+                                                    {{ $flight->company->nom ?? '-' }}
                                                 </td>
                                                 <td id="vol_num_{{$flight->id}}"
                                                     priceAdult="{{floor($flight->prix_vente_adult)}}"
@@ -418,7 +418,7 @@
                                                                 </td>
                                                             @endif
                                                             <td>
-                                                                {{ $flight->company->nom ?? '—' }}
+                                                                {{ $flight->company->nom ?? '-' }}
                                                             </td>
                                                             <td>{{$flight->days_before_closure}}</td>
                                                             <td>
@@ -538,7 +538,7 @@
                                                                 </td>
                                                             @endif
                                                             <td>
-                                                                {{ $flight->company->nom ?? '—' }}
+                                                                {{ $flight->company->nom ?? '-' }}
                                                             </td>
                                                             <td>{{$flight->days_before_closure}}</td>
                                                             <td>

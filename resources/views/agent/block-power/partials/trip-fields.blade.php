@@ -3,7 +3,7 @@
     <div class="form-group col-md-3">
         <label for="{{ $field }}">{{ $label }}</label>
         <select name="{{ $field }}" id="{{ $field }}" class="form-control" @required($field !== 'company')>
-            @if($field === 'company')<option value="">—</option>@endif
+            @if($field === 'company')<option value="">-</option>@endif
             @foreach($items->when($value($field) && ! $items->contains($value($field)), fn ($list) => $list->prepend($value($field))) as $item)
                 <option @selected($value($field) === $item)>{{ $item }}</option>
             @endforeach

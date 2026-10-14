@@ -95,7 +95,7 @@
                                         </div>
                                     </td>
                                     <td><strong>{{ $flight->itineraire }}</strong><br><small class="text-gray-500">{{ ucfirst($flight->destination) }} · {{ $flight->period_voyage }}</small></td>
-                                    <td>{{ $flight->company->nom ?? '—' }}</td>
+                                    <td>{{ $flight->company->nom ?? '-' }}</td>
                                     <td style="min-width: 140px">
                                         <div class="tc-fill__bar"><i style="--w: {{ $fill }}%"></i></div>
                                         <small class="text-gray-500">{{ $flight->place_disponible }} places libres</small>

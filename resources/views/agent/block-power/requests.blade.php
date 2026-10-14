@@ -9,7 +9,7 @@
     @include('agent.partials.top-nav')
 @endsection
 
-@php($date = fn ($value) => $value ? \Illuminate\Support\Carbon::parse($value)->format('d/m/Y') : '—')
+@php($date = fn ($value) => $value ? \Illuminate\Support\Carbon::parse($value)->format('d/m/Y') : '-')
 
 @section('content')
     <div class="container-fluid">
@@ -41,7 +41,7 @@
                             <td>{{ number_format((float) $item->price, 0, ',', ' ') }} € · {{ $item->cabin_class }}</td>
                             <td>{{ number_format((float) $item->target_price, 0, ',', ' ') }} € · {{ $item->target_class }}</td>
                             <td>{{ $date($item->option_date) }}</td>
-                            <td>{{ $item->agent->prenom ?? '—' }}</td>
+                            <td>{{ $item->agent->prenom ?? '-' }}</td>
                             <td class="text-right">
                                 <form method="POST" action="{{ route('agent.block-power.requests.destroy', $item) }}" onsubmit="return confirm('Supprimer cette demande ?')">
                                     @csrf

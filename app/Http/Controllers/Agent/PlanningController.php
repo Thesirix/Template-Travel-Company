@@ -407,7 +407,7 @@ class PlanningController extends Controller
             $endExclusive = \Carbon\Carbon::parse($request->end_date)->startOfDay();
             $endInc       = $endExclusive->copy()->subDay(); // borne inclusive
 
-            // Jours ouvrés (sans dimanche ni fériés), inclusif — identique au JS
+            // Jours ouvrés (sans dimanche ni fériés), inclusif, identique au JS
             $nbJours = $this->businessDaysInclusive($startInc, $endInc);
 
             $joursParType = json_decode($request->jours_par_type, true) ?? [];

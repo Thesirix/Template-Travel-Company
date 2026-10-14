@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Travel Company — interactions du back-office (sans dépendance)
+   Travel Company, interactions du back-office (sans dépendance)
    Toasts, barre de chargement, ripple, menu repliable, palette Ctrl+K,
    compteurs animés, apparitions au défilement.
    ========================================================================== */

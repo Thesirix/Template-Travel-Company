@@ -40,6 +40,6 @@ php artisan optimize:clear >/dev/null
 
 echo ""
 echo "  Template Travel Company est prêt : http://localhost:${APP_PORT:-8000}"
-echo "  admin@travel-company.test / super.agent@travel-company.test — mot de passe Demo1234!"
+echo "  admin@travel-company.test / super.agent@travel-company.test, mot de passe Demo1234!"
 echo ""
 exec php artisan serve --host=0.0.0.0 --port=8000 --no-reload

@@ -17,7 +17,7 @@ class FlightSalesStatistics
     public function byAgent(int $groupId): ?object
     {
         $rows = $this->activeReservations($groupId)->groupBy('gent_id')
-            ->map(fn (Collection $reservations) => $this->count($reservations, ['agentName' => $reservations->first()->gent?->prenom ?? '—']))
+            ->map(fn (Collection $reservations) => $this->count($reservations, ['agentName' => $reservations->first()->gent?->prenom ?? '-']))
             ->sortByDesc('totalNumber')->values();
         if ($rows->isEmpty()) {
             return null;
@@ -36,7 +36,7 @@ class FlightSalesStatistics
     public function byAgency(int $groupId): array
     {
         return $this->activeReservations($groupId)->groupBy(fn ($reservation) => $reservation->gent?->agence_id)
-            ->map(fn (Collection $reservations) => $this->count($reservations, ['agencyName' => $reservations->first()->gent?->agence?->name ?? '—']))
+            ->map(fn (Collection $reservations) => $this->count($reservations, ['agencyName' => $reservations->first()->gent?->agence?->name ?? '-']))
             ->sortByDesc('totalNumber')->values()->all();
     }
 
@@ -48,7 +48,7 @@ class FlightSalesStatistics
         foreach ($flights as $flight) {
             $outbound = $flight->escaliers->where('type', 0);
             $airport = $flight->type_voyage === FlightType::RETURN->value ? $outbound->first()?->airPortDe : $outbound->last()?->airPortA;
-            $city = $airport?->ville?->nom ?? $flight->destination ?? '—';
+            $city = $airport?->ville?->nom ?? $flight->destination ?? '-';
             $cities[$city] ??= ['aller' => [0, 0, 0], 'retour' => [0, 0, 0]];
 
             $legs = match ($flight->type_voyage) {

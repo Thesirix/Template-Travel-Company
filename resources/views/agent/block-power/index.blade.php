@@ -11,7 +11,7 @@
 
 @php
     $tabs = \App\Http\Controllers\Agent\BlockPowerController::TABS;
-    $date = fn ($value) => $value ? \Illuminate\Support\Carbon::parse($value)->format('d/m/Y') : '—';
+    $date = fn ($value) => $value ? \Illuminate\Support\Carbon::parse($value)->format('d/m/Y') : '-';
     $sortLink = fn (string $column, string $label) => '<a href="' . e(route('agent.block-power', ['statut' => $tab, 'tri' => $column,
         'sens' => $sort === $column && $direction === 'asc' ? 'desc' : 'asc'] + $filters)) . '">' . e($label)
         . ($sort === $column ? ($direction === 'asc' ? ' ↑' : ' ↓') : '') . '</a>';
@@ -95,13 +95,13 @@
                             <td>{{ $option->departure_city }} → {{ $option->arrival_city }}<br><small class="text-gray-500">{{ $option->country }}</small></td>
                             <td>{{ $date($option->date_aller) }}</td>
                             <td>{{ $date($option->date_retour) }}</td>
-                            <td>{{ $option->company ?: '—' }}</td>
+                            <td>{{ $option->company ?: '-' }}</td>
                             <td>{{ $option->passengers->count() }} / {{ $option->seats }}</td>
                             <td>{{ number_format((float) $option->price, 0, ',', ' ') }} €</td>
                             <td>{{ $date($option->option_date) }}</td>
                             <td>
-                                {{ $option->agent->prenom ?? '—' }}
-                                @if($option->release)<br><small class="text-gray-500">relâchée par {{ $option->release->agent->prenom ?? '—' }}</small>@endif
+                                {{ $option->agent->prenom ?? '-' }}
+                                @if($option->release)<br><small class="text-gray-500">relâchée par {{ $option->release->agent->prenom ?? '-' }}</small>@endif
                             </td>
                             <td class="text-right text-nowrap">
                                 @if($option->isActive() && $option->freeSeats() > 0)

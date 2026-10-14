@@ -243,7 +243,7 @@
                                     <td><input type="text" name="{{ $field('nom') }}" class="form-control form-control-sm" required value="{{ old("passengers.$passenger->id.nom", $passenger->nom) }}"></td>
                                     <td><input type="text" name="{{ $field('prenom') }}" class="form-control form-control-sm" required value="{{ old("passengers.$passenger->id.prenom", $passenger->prenom) }}"></td>
                                     <td><input type="date" name="{{ $field('date_naissance') }}" class="form-control form-control-sm" required value="{{ $date(old("passengers.$passenger->id.date_naissance", $passenger->date_naissance)) }}"></td>
-                                    <td class="text-nowrap">{{ $passenger->ageA ?? '—' }} / {{ $passenger->ageR ?? '—' }}</td>
+                                    <td class="text-nowrap">{{ $passenger->ageA ?? '-' }} / {{ $passenger->ageR ?? '-' }}</td>
                                     <td><input type="text" name="{{ $field('tele') }}" class="form-control form-control-sm" maxlength="15" value="{{ old("passengers.$passenger->id.tele", $passenger->tele) }}"></td>
                                     <td><input type="email" name="{{ $field('mail') }}" class="form-control form-control-sm" value="{{ old("passengers.$passenger->id.mail", $passenger->mail) }}"></td>
                                     <td><input type="text" name="{{ $field('passport_num') }}" class="form-control form-control-sm" maxlength="15" value="{{ old("passengers.$passenger->id.passport_num", $passenger->passport_num) }}"></td>
